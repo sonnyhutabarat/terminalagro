@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\produk;
+use App\toko;
 use Illuminate\Http\Request;
-use DB;
 
 class produkController extends Controller
 {
@@ -16,13 +16,14 @@ class produkController extends Controller
     public function index()
     {
         $title = 'Produk';
-        $produk = DB::table('toko')->join('produk', function($join)
-        {
-            $join->on('toko.id','=','produk.id_toko');
+        // $produk = toko::join('produk', function($join)
+        // {
+        //     $join->on('toko.id','=','produk.id_toko');
             
-        })
-        ->where('toko.status_toko','=','2')
-        ->get();
+        // })
+        // ->where('toko.status_toko','=','2')
+        // ->get();
+        $produk = produk::all();
         return view('produk.index',compact('produk','title'));
     }
 

@@ -21,14 +21,18 @@
                   <tr>
                     <th>Nama</th>
                     <th>Kategori</th>
-                    <th>Harga</th>>  
+                    <th>Harga</th>
+                    <th>Aksi</th>  
                   </tr></thead>
                 <tbody>
                 @foreach($listproduk as $index=>$listproduk)
                 <tr>
                   <td>{{ $listproduk->nama }}</td>
-                  <td>{{ $listproduk->kategori }}</td>  
+                  <td>{{ $listproduk->kategori->nama }}</td>  
                   <td>{{ $listproduk->harga }}</td>
+                  <td>
+                  <a style="color: blue;" href="{{ url('toko/indexkomentar/'.$listproduk->id) }}">Lihat Komentar</a>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>

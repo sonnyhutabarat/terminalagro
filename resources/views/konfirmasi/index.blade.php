@@ -31,7 +31,7 @@
                     <a style="color: blue;" href="{{ url('konfirmasi/terima/'.$konfirmasi->id) }}">Terima</a>
                     <a style="color: red;" href="{{ url('konfirmasi/tolak/'.$konfirmasi->id) }}">Tolak</a>
                     @else
-                    <td>{{ $konfirmasi->toko->nama }}</td>
+                    <td>{{ $konfirmasi->statustoko->nama }}</td>
                 </td>
                 @endif
                 </tr>

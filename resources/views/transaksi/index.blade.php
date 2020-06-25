@@ -28,7 +28,7 @@
                 @foreach($transaksi as $index=>$transaksi)
                 <tr>
                 <td>{{ $transaksi->pengguna->nama }}</td>
-                <td>LOL</td>
+                <td>{{ $transaksi->total }}</td>
                 <td>{{ $transaksi->pengguna->no_telp }}</td>
                 @if($transaksi->status_transaksi == 1) 
                 <td>

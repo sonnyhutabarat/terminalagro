@@ -56,6 +56,7 @@ Route::get('/role/destroy/{id}','roleController@destroy');
 Route::get('/toko', 'tokoController@index');
 Route::get('/toko/show/{id}', 'tokoController@show');
 Route::get('/toko/indexproduk/{id}', 'tokoController@indexproduk');
+Route::get('/toko/indexkomentar/{id}', 'tokoController@indexkomentar');
 
 Route::get('/konfirmasi', 'konfirmasiController@index');
 Route::get('/konfirmasi/terima/{id}', 'konfirmasiController@terima');
