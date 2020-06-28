@@ -19,6 +19,7 @@
               <table class="table table-hover" id="datatable">
                 <thead>
                   <tr>
+                    <th>Foto</th>
                     <th>Nama Toko</th>
                     <th>Alamat Toko</th>
                     <th>Nomor Telepon</th>>
@@ -28,8 +29,9 @@
                 @foreach($toko as $index=>$toko)
                 @if($toko->status_toko == 2)
                 <tr>
+                  <td><img src="{{asset('images/' . $toko->gambar) }}" width="100px" height="100px" alt="Image"></td>
                   <td>{{ $toko->nama }}</td>
-                  <td>{{ $toko->alamat }}</td>  
+                  <td>{{ $toko->jalan }}</td>  
                   <td>{{ $toko->no_telp }}</td>
                 <td><a style="color: blue;" href="{{ url('toko/show/'.$toko->id) }}">Lihat Detail</a></td>
                 </tr>

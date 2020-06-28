@@ -33,9 +33,13 @@ class tokoController extends Controller
         public function indexproduk($id)
     {
         $title = 'Daftar Produk';
-        $listproduk = produk::where('id_toko', $id)->get();
 
-        
+        $listproduk = DB::table('produk')
+                    ->join('toko','toko.id','=','produk.id_toko')
+                    ->join('kategori','kategori.id','=','produk.kategori')
+                    ->select('produk.id','kategori.nama AS jenis','produk.nama','produk.harga','produk.gambar')
+                    ->where('produk.id_toko',$id)
+                    ->get();
 
         return view('toko.listproduk', compact('listproduk','title'));
     }
@@ -43,8 +47,6 @@ class tokoController extends Controller
     public function indexkomentar($id)
     {
         $title = 'Daftar Komentar';
-        // $listkomentar = komentar::where('id_produk', $id)->get();
-        // $listkomentar = komentar::all();
         $listkomentar = DB::table('komentar')
                 ->join('produk','komentar.id_produk','=','produk.id')
                 ->join('pengguna','komentar.id_pengguna','=','pengguna.id')

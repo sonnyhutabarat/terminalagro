@@ -18,7 +18,7 @@
         <div class="box-body">
               <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
     @foreach($user as $user)
         <img src="{{asset('images/' . $user->gambar) }}" width="200px" height="200px" alt="Image">
     </div>

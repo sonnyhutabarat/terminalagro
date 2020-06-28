@@ -26,7 +26,7 @@
                   </tr></thead>
                 <tbody>
                 @foreach($pembeli as $index=>$pembeli)
-                @if($pembeli->role == 1)
+                @if($pembeli->role == 2)
                 <tr>
                 <td><img src="{{asset('images/' . $pembeli->foto) }}" width="100px" height="100px" alt="Image"></td>
                 <td>{{$pembeli->nama}}</td>

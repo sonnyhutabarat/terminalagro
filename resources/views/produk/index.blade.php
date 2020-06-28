@@ -31,8 +31,8 @@
                 <tr>
                 <td><img src="{{asset('images/' . $produk->gambar) }}" width="100px" height="100px" alt="Image"></td>
                   <td>{{ $produk->nama }}</td>
-                  <td>{{ $produk->kategori->nama }}</td>
-                  <td>{{ $produk->produktoko->nama }}</td>  
+                  <td>{{ $produk->jenis }}</td>
+                  <td>{{ $produk->namatoko }}</td>  
                   <td>{{ $produk->harga }}</td>
                   <td><a style="color: blue;" href="{{ url('produk/show/'.$produk->id) }}">Lihat Detail</a></td>
                 </tr>

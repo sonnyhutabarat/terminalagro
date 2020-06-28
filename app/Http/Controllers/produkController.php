@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\produk;
 use App\toko;
 use Illuminate\Http\Request;
+use DB;
 
 class produkController extends Controller
 {
@@ -23,7 +24,15 @@ class produkController extends Controller
         // })
         // ->where('toko.status_toko','=','2')
         // ->get();
-        $produk = produk::all();
+        // $produk = produk::all();
+        $produk = DB::table('produk')
+            ->join('toko','toko.id','=','produk.id_toko')
+            ->join('kategori','kategori.id','=','produk.kategori')
+            ->select('produk.id','kategori.nama AS jenis','produk.nama','produk.harga','produk.gambar','toko.nama AS namatoko')
+            ->get();
+
+            // dd(json_encode($produk));
+
         return view('produk.index',compact('produk','title'));
     }
 

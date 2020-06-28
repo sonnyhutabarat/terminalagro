@@ -19,13 +19,17 @@
               <table class="table table-hover" id="datatable">
                 <thead>
                   <tr>
+                    <th>Foto</th>
                     <th>Nama Toko</th>
+                    <th>Alamat Toko</th>
                     <th>Status Toko</th>  
                   </tr></thead>
                 <tbody>
                 @foreach($konfirmasi as $index=>$konfirmasi)
                 <tr>
+                <td><img src="{{asset('images/' . $konfirmasi->gambar) }}" width="100px" height="100px" alt="Image"></td>
                 <td>{{$konfirmasi->nama}}</td>
+                <td>{{$konfirmasi->kecamatan}}</td>
                 @if($konfirmasi->status_toko == 3) 
                 <td>
                     <a style="color: blue;" href="{{ url('konfirmasi/terima/'.$konfirmasi->id) }}">Terima</a>

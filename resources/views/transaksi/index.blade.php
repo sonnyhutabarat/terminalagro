@@ -19,6 +19,7 @@
               <table class="table table-hover" id="datatable">
                 <thead>
                   <tr>
+                    <th>Foto Bukti</th>
                     <th>Transfer dari</th>
                     <th>Total</th>
                     <th>Nomor Telepon</th>
@@ -27,6 +28,7 @@
                 <tbody>
                 @foreach($transaksi as $index=>$transaksi)
                 <tr>
+                <td><img src="{{asset('images/' . $transaksi->foto) }}" width="100px" height="100px" alt="Image"></td>
                 <td>{{ $transaksi->pengguna->nama }}</td>
                 <td>{{ $transaksi->total }}</td>
                 <td>{{ $transaksi->pengguna->no_telp }}</td>

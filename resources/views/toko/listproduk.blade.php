@@ -19,6 +19,7 @@
               <table class="table table-hover" id="datatable">
                 <thead>
                   <tr>
+                    <th>Foto</th>
                     <th>Nama</th>
                     <th>Kategori</th>
                     <th>Harga</th>
@@ -27,8 +28,9 @@
                 <tbody>
                 @foreach($listproduk as $index=>$listproduk)
                 <tr>
+                  <td><img src="{{asset('images/' . $listproduk->gambar) }}" width="100px" height="100px" alt="Image"></td>
                   <td>{{ $listproduk->nama }}</td>
-                  <td>{{ $listproduk->kategori->nama }}</td>  
+                  <td>{{ $listproduk->jenis }}</td>  
                   <td>{{ $listproduk->harga }}</td>
                   <td>
                   <a style="color: blue;" href="{{ url('toko/indexkomentar/'.$listproduk->id) }}">Lihat Komentar</a>

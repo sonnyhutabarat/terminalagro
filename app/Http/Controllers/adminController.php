@@ -24,7 +24,7 @@ class adminController extends Controller
         $toko = toko::where(DB::raw("status_toko"),('2'))->get();
         $jumlah_toko = count($toko);
 
-        $pembeli = pembeli::where(DB::raw("role"),('1'))->get();
+        $pembeli = pembeli::where(DB::raw("role"),('2'))->get();
         $jumlah_pembeli = count($pembeli);
 
         

@@ -18,4 +18,6 @@ class toko extends Model
     {
         return $this->belongsTo('App\pembeli','id_pengguna','id');
     }
+
+
 }

@@ -19,9 +19,10 @@
         <div class="box-body">
               <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
+        <img src="{{asset('images/' . $toko->gambar) }}" width="200px" height="200px" alt="Image">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <p>Nama :         {{$toko->nama}}</p>
         <p>Alamat :         {{$toko->alamat}}</p>
         <p>Nomor Telepon :         {{$toko->no_telp}}</p>
