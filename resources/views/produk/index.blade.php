@@ -24,6 +24,7 @@
                     <th>Kategori</th>
                     <th>Toko</th>
                     <th>Harga</th>
+                    <th>Stok</th>
                     <th>Aksi</th>  
                   </tr></thead>
                 <tbody>
@@ -34,6 +35,7 @@
                   <td>{{ $produk->jenis }}</td>
                   <td>{{ $produk->namatoko }}</td>  
                   <td>{{ $produk->harga }}</td>
+                  <td>{{ $produk->stok }}</td>
                   <td><a style="color: blue;" href="{{ url('produk/show/'.$produk->id) }}">Lihat Detail</a></td>
                 </tr>
                 @endforeach

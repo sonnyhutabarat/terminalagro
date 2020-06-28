@@ -17,18 +17,10 @@ class produkController extends Controller
     public function index()
     {
         $title = 'Produk';
-        // $produk = toko::join('produk', function($join)
-        // {
-        //     $join->on('toko.id','=','produk.id_toko');
-            
-        // })
-        // ->where('toko.status_toko','=','2')
-        // ->get();
-        // $produk = produk::all();
         $produk = DB::table('produk')
             ->join('toko','toko.id','=','produk.id_toko')
             ->join('kategori','kategori.id','=','produk.kategori')
-            ->select('produk.id','kategori.nama AS jenis','produk.nama','produk.harga','produk.gambar','toko.nama AS namatoko')
+            ->select('produk.id','kategori.nama AS jenis','produk.nama','produk.harga','produk.gambar','toko.nama AS namatoko','produk.stok')
             ->get();
 
             // dd(json_encode($produk));
