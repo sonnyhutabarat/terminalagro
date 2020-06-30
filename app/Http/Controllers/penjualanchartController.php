@@ -13,6 +13,8 @@ class penjualanchartController extends Controller
                     ->groupBy(\DB::raw("Month(created_at)"))
                     ->pluck('count');
 
+
+                    // dd(json_encode($chart_penjualan));
         return view('penjualanchart.index',compact('chart_penjualan'));
     }
 }

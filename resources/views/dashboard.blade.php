@@ -64,25 +64,25 @@
         </div>
       </div>
       <!-- /.box -->
-
       <body>
-<div id="container"></div>
+
+<div id="container" >
+</div>
 </body>
   
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript">
-    var users =  <?php echo json_encode($chart_penjualan) ?>;
-   
+    var users =  <?php echo json_encode($total_terjual) ?>;
     Highcharts.chart('container', {
         title: {
             text: 'Penjualan Produk'
         },
          xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            categories: {!!json_encode($listkategori)!!}
         },
         yAxis: {
             title: {
-                text: '-'
+                text: 'Jumlah'
             }
         },
         legend: {

@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\transaksi;
 use App\pembeli;
 use App\toko;
+use App\detailtransaksi;
+use App\kategori;
 use DB;
+use Illuminate\Support\Collection;
 
 class adminController extends Controller
 {
@@ -33,7 +36,33 @@ class adminController extends Controller
             ->groupBy(\DB::raw("Month(created_at)"))
             ->pluck('count');
 
-        return view('dashboard',compact('jumlah_produk','jumlah_toko','jumlah_pembeli','chart_penjualan'));
+            //ini udah benar
+                // $stok_produk = DB::table('detailtransaksi')
+                //     ->select(DB::raw('SUM(detailtransaksi.jumlah) AS total_terjual'))
+                //     ->join('produk','detailtransaksi.id_product','=','produk.id')
+                //     ->join('kategori','produk.kategori','=','kategori.id')
+                //     ->groupBy('detailtransaksi.id_product')
+                //     ->pluck('total_terjual');
+                
+                    $stok_produk = DB::table('detailtransaksi')
+                    ->select(DB::raw('SUM(detailtransaksi.jumlah) AS total_terjual'))
+                    ->join('produk','detailtransaksi.id_product','=','produk.id')
+                    ->join('kategori','produk.kategori','=','kategori.id')
+                    ->groupBy('detailtransaksi.id_product')
+                    ->where('detailtransaksi.status_pengiriman','=','4')
+                    ->pluck('total_terjual');    
+
+                    $total_terjual = array_map('intval', json_decode($stok_produk));
+
+                $kategori = kategori::all();
+                $listkategori = [];
+                $data = [];
+                foreach ($kategori as $kategori ) {
+                    $listkategori[] = $kategori->nama; 
+                }
+                // dd(json_encode($stok_produk));
+
+        return view('dashboard',compact('jumlah_produk','jumlah_toko','jumlah_pembeli','chart_penjualan','listkategori','total_terjual'));
     }
 
     public function logout()
