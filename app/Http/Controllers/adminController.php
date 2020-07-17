@@ -48,8 +48,8 @@ class adminController extends Controller
                     ->select(DB::raw('SUM(detailtransaksi.jumlah) AS total_terjual'))
                     ->join('produk','detailtransaksi.id_product','=','produk.id')
                     ->join('kategori','produk.kategori','=','kategori.id')
-                    ->groupBy('detailtransaksi.id_product')
                     ->where('detailtransaksi.status_pengiriman','=','4')
+                    ->groupBy('kategori.id')
                     ->pluck('total_terjual');    
 
                     $total_terjual = array_map('intval', json_decode($stok_produk));

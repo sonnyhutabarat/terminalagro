@@ -14,7 +14,6 @@ class penjualanchartController extends Controller
                     ->pluck('count');
 
 
-                    // dd(json_encode($chart_penjualan));
         return view('penjualanchart.index',compact('chart_penjualan'));
     }
 }

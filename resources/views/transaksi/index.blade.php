@@ -32,7 +32,7 @@
                 <td>{{ $transaksi->pengguna->nama }}</td>
                 <td>{{ $transaksi->total }}</td>
                 <td>{{ $transaksi->pengguna->no_telp }}</td>
-                @if($transaksi->status_transaksi == 1) 
+                @if($transaksi->status_transaksi == 3) 
                 <td>
                     <a style="color: blue;" href="{{ url('transaksi/terima/'.$transaksi->id) }}">Terima</a>
                     <a style="color: red;" href="{{ url('transaksi/tolak/'.$transaksi->id) }}">Tolak</a>
