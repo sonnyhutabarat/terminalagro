@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\transaksi;
+use App\notif;
 use Illuminate\Http\Request;
 
 class transaksiController extends Controller
@@ -25,6 +26,12 @@ class transaksiController extends Controller
         $transaksi->status_transaksi = 2;
         $transaksi->save();
 
+        $idNotif = transaksi::select('id_pengguna')->where('id','=',$id)->pluck('id_pengguna')->first();
+        $notif = new notif();
+        $notif->id_penerima = $idNotif;
+        $notif->isi='Pembayaran anda telah diterima';
+        $notif->save();
+
         return redirect('transaksi');
     }
 
@@ -33,6 +40,12 @@ class transaksiController extends Controller
         $transaksi = transaksi::where('id', $id)->first();
         $transaksi->status_transaksi = 3;
         $transaksi->save();
+
+        $idNotif = transaksi::select('id_pengguna')->where('id','=',$id)->pluck('id_pengguna')->first();
+        $notif = new notif();
+        $notif->id_penerima=$idNotif;
+        $notif->isi='Pembayaran anda telah ditolak';
+        $notif->save();
 
         return redirect('transaksi');
     }
