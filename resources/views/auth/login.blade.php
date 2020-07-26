@@ -31,10 +31,20 @@
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" class="form-control" id="email" name="email">
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                 </div>
                 <div class="form-group">
                     <label for="alamat">Password:</label>
                     <input type="password" class="form-control" id="password" name="password"></input>
+                         @if ($errors->has('password'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('password') }}</strong>
+                              </span>
+                          @endif
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-md btn-primary">Login</button>
