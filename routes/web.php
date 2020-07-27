@@ -61,6 +61,7 @@ Route::get('/toko/indexkomentar/{id}', 'tokoController@indexkomentar');
 Route::get('/konfirmasi', 'konfirmasiController@index');
 Route::get('/konfirmasi/terima/{id}', 'konfirmasiController@terima');
 Route::get('/konfirmasi/tolak/{id}', 'konfirmasiController@tolak');
+Route::get('/konfirmasi/show/{id}', 'konfirmasiController@show');
 
 Route::get('/transaksi', 'transaksiController@index');
 Route::get('/transaksi/terima/{id}', 'transaksiController@terima');

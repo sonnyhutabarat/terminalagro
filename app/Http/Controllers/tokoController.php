@@ -51,6 +51,7 @@ class tokoController extends Controller
                 ->join('produk','komentar.id_produk','=','produk.id')
                 ->join('pengguna','komentar.id_pengguna','=','pengguna.id')
                 ->select('komentar.komentar','pengguna.nama','pengguna.foto')
+                ->where('produk.id','=',$id)
                 ->get();
 
 

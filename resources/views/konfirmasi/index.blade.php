@@ -22,7 +22,8 @@
                     <th>Foto</th>
                     <th>Nama Toko</th>
                     <th>Alamat Toko</th>
-                    <th>Status Toko</th>  
+                    <th>Status Toko</th>
+                    <th>Detail Toko</th>  
                   </tr></thead>
                 <tbody>
                 @foreach($konfirmasi as $index=>$konfirmasi)
@@ -32,11 +33,14 @@
                 <td>{{$konfirmasi->kecamatan}}</td>
                 @if($konfirmasi->status_toko == 3) 
                 <td>
+
                     <a style="color: blue;" href="{{ url('konfirmasi/terima/'.$konfirmasi->id) }}">Terima</a>
                     <a style="color: red;" href="{{ url('konfirmasi/tolak/'.$konfirmasi->id) }}">Tolak</a>
+                    <td><a style="color: blue;" href="{{ url('konfirmasi/show/'.$konfirmasi->id) }}">Lihat Detail</a></td> 
                     @else
-                    <td>{{ $konfirmasi->statustoko->nama }}</td>
+                <td>{{ $konfirmasi->statustoko->nama }}</td>
                 </td>
+                <td><a style="color: blue;" href="{{ url('konfirmasi/show/'.$konfirmasi->id) }}">Lihat Detail</a></td> 
                 @endif
                 </tr>
                 @endforeach

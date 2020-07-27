@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-4">
         <p>Nama :         {{$toko->nama}}</p>
-        <p>Alamat :         {{$toko->alamat}}</p>
+        <p>Alamat :         {{$toko->jalan}}</p>
         <p>Nomor Telepon :         {{$toko->no_telp}}</p>
     </div>
   </div>

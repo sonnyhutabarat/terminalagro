@@ -62,4 +62,12 @@ class konfirmasiController extends Controller
 
         return redirect('konfirmasi');
     }
+
+        public function show($id)
+    {
+        $title = 'Detail Toko';
+        $konfirmasi = toko::where('id', $id)->first();
+
+        return view('konfirmasi.detail', compact('konfirmasi','title'));
+    }
 }
